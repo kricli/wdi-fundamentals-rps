@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////
 /*   Provided Code - Please Don't Edit   */
 ////////////////////////////////////////////////
-'use strict';
+//'use strict';
 
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.")
+    console.log("Please choose either 'rock', 'paper', or 'scissors'.");
     return prompt();
 }
 function randomPlay() {
@@ -42,27 +42,27 @@ function getWinner(playerMove,computerMove) {
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     if (playerMove === "rock") {
         if (computerMove === "rock") {
-            winner = "no one"
+            winner = "no one";
         }else if (computerMove === "scissors") {
-            winner = "player"
+            winner = "player";
         }else {
-            winner = "computer"
+            winner = "computer";
         }
     }else if (playerMove === "paper") {
         if (computerMove === "paper") {
-            winner = "no one"
+            winner = "no one";
         }else if (computerMove === "rock") {
-            winner = "player"
+            winner = "player";
         }else {
-            winner = "computer"
+            winner = "computer";
         }
     }else {
         if (computerMove === "scissors") {
-            winner = "no one"
+            winner = "no one";
         }else if (computerMove === "paper") {
-            winner = "player"
+            winner = "player";
         }else {
-            winner = "computer"
+            winner = "computer";
         }
     }
     return winner;
@@ -87,6 +87,26 @@ function playToFive() {
         }
         console.log("Player played " + playerMove + ", computer played " + computerMove + ". " + winner + " won.");
         console.log("Current scoreboard: " + playerWins + ":" + computerWins);
-    }return (playerWins > computerWins) ? "Player won!!!" : "Computer won!!!"
-    
+    }return (playerWins > computerWins) ? "Player won!!!" : "Computer won!!!";
+}
+
+function playTo(x) {
+    console.log("Let's play Rock, Paper, Scissors");
+    var playerWins = 0;
+    var computerWins = 0;
+    var playerMove;
+    var computerMove;
+    var winner;
+    while (playerWins < x && computerWins < x) {
+        playerMove=getPlayerMove();
+        computerMove=getComputerMove();
+        winner = getWinner(playerMove,computerMove);
+        if (winner === "player") {
+            playerWins += 1;
+        }else if (winner === "computer") {
+            computerWins += 1;
+        }
+        console.log("Player played " + playerMove + ", computer played " + computerMove + ". " + winner + " won.");
+        console.log("Current scoreboard: " + playerWins + ":" + computerWins);
+    }return (playerWins > computerWins) ? "Player won!!!" : "Computer won!!!";
 }
